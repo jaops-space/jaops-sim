@@ -1,0 +1,553 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot name="pragyaan_rover">
+  <joint name="bogie_l" type="continuous">
+    <origin xyz="0.0754756 0.3607256 -0.2064196" rpy="-0.0000002 0. 0.0000004"/>
+    <parent link="rocker_left"/>
+    <child link="bogie_left"/>
+    <axis xyz="1. 0. 0."/>
+  </joint>
+  <joint name="bogie_r" type="continuous">
+    <origin xyz="-0.0661764 0.3610772 -0.1975457" rpy="-0.0000002 0. 0.0000004"/>
+    <parent link="rocker_right"/>
+    <child link="bogie_right"/>
+    <axis xyz="1. 0. 0."/>
+  </joint>
+  <joint name="joint_Pragyaan-Body_NavCam_left_NavCam_left" type="fixed">
+    <origin xyz="0.1591243 0.1491396 0.36693 " rpy="2.9575973 -0.0082019 -3.1400664"/>
+    <parent link="Pragyaan"/>
+    <child link="Body_NavCam_left_NavCam_left"/>
+  </joint>
+  <joint name="joint_Pragyaan-Body_NavCam_right_NavCam_right" type="fixed">
+    <origin xyz="-0.159981 0.1491396 0.36693 " rpy="2.9575973 -0.0082019 -3.1400664"/>
+    <parent link="Pragyaan"/>
+    <child link="Body_NavCam_right_NavCam_right"/>
+  </joint>
+  <joint name="joint_Pragyaan-depth_cam" type="fixed">
+    <origin xyz="-0.0041552 0.1451544 0.3489496" rpy="-3.1392138 0.0998254 3.14032 "/>
+    <parent link="Pragyaan"/>
+    <child link="depth_cam"/>
+  </joint>
+  <joint name="rocker_l" type="continuous">
+    <origin xyz="0.2612816 0.1085687 0.0289955" rpy="-1.5707961 -0.0000004 0. "/>
+    <parent link="Pragyaan"/>
+    <child link="rocker_left"/>
+    <axis xyz="1. 0. 0."/>
+  </joint>
+  <joint name="rocker_r" type="continuous">
+    <origin xyz="-0.2565102 0.1044748 0.0308113" rpy="-1.5707963 -0. 0. "/>
+    <parent link="Pragyaan"/>
+    <child link="rocker_right"/>
+    <axis xyz="1. 0. 0."/>
+  </joint>
+  <joint name="wheel_bl" type="continuous">
+    <origin xyz="0.2446567 0.3255871 -0.1849768" rpy="-0.9082444 0. 0. "/>
+    <parent link="bogie_left"/>
+    <child link="Wheel_back_left"/>
+    <axis xyz="1. 0. 0."/>
+  </joint>
+  <joint name="wheel_br" type="continuous">
+    <origin xyz="-0.2516727 0.3308002 -0.1864157" rpy="0.1365122 0. 0. "/>
+    <parent link="bogie_right"/>
+    <child link="Wheel_back_right"/>
+    <axis xyz="1. 0. 0."/>
+  </joint>
+  <joint name="wheel_fl" type="continuous">
+    <origin xyz="0.3204064 -0.6752018 -0.3913617" rpy="-1.3830266 0. 0.0000004"/>
+    <parent link="rocker_left"/>
+    <child link="Wheel_front_left"/>
+    <axis xyz="1. 0. 0."/>
+  </joint>
+  <joint name="wheel_fr" type="continuous">
+    <origin xyz="-0.3177407 -0.6728966 -0.3839952" rpy="1.7787697 0. 0.0000004"/>
+    <parent link="rocker_right"/>
+    <child link="Wheel_front_right"/>
+    <axis xyz="1. 0. 0."/>
+  </joint>
+  <joint name="wheel_ml" type="continuous">
+    <origin xyz="0.2452282 -0.3030834 -0.1850814" rpy="-1.0145161 0. 0. "/>
+    <parent link="bogie_left"/>
+    <child link="Wheel_middle_left"/>
+    <axis xyz="1. 0. 0."/>
+  </joint>
+  <joint name="wheel_mr" type="continuous">
+    <origin xyz="-0.2524492 -0.2997136 -0.1855052" rpy="2.1274116 0. 0. "/>
+    <parent link="bogie_right"/>
+    <child link="Wheel_middle_right"/>
+    <axis xyz="1. 0. 0."/>
+  </joint>
+  <link name="Body_NavCam_left_NavCam_left"/>
+  <link name="Body_NavCam_right_NavCam_right"/>
+  <link name="Pragyaan">
+    <visual>
+      <origin xyz="0.0011804 0.1122519 0.0243774" rpy="-1.5707965 0.1820427 -0. "/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/Body_body_top_body_top.obj" scale="0.5 0.5 0.5"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.0016626 0.17169 0.0209961" rpy="-1.5707965 0.1820427 -0. "/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/Body_body_main_body_main.obj" scale="0.5 0.5 0.5"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.0016626 0.17169 0.0209961" rpy="-1.5707965 0.1820427 -0. "/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/body_attachments.obj" scale="0.5 0.5 0.5"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.0016626 0.17169 0.0209961" rpy="-1.5707965 0.1820427 -0. "/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/red_sensor_01.obj" scale="0.5 0.5 0.5"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.1603076 0.1486673 0.3447998" rpy="-1.4469512 0. 0. "/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/Body_NavCam_left_Cube_078_silver_metal_0_Cube_078_silver_metal_0.obj" scale="0.6903735 0.6903736 0.6903736"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.1603076 0.1486673 0.3447998" rpy="-1.4469512 0. 0. "/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/Body_NavCam_left_Cube_078_black_0_Cube_078_black_0.obj" scale="0.6903735 0.6903736 0.6903736"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-0.1587976 0.1486673 0.3447998" rpy="-1.4469512 0. 0. "/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/Body_NavCam_right_Cube_079_silver_metal_0_Cube_079_silver_metal_0.obj" scale="0.6903735 0.6903736 0.6903736"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-0.1587976 0.1486673 0.3447998" rpy="-1.4469512 0. 0. "/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/Body_NavCam_right_Cube_079_black_0_Cube_079_black_0.obj" scale="0.6903735 0.6903736 0.6903736"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.13099 0.0772696 0.4068896" rpy="-1.5773519 0.1690651 -0.0063767"/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/APXS_001_wheels_001_black_0_wheels_001_black_0.obj" scale="0.4139922 0.4139885 0.451397 "/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.13099 0.0772696 0.4068896" rpy="-1.5773519 0.1690651 -0.0063767"/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/APXS_001_wheels_001_glass_0_wheels_001_glass_0.obj" scale="0.4139922 0.4139885 0.451397 "/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.13099 0.0772696 0.4068896" rpy="-1.5773519 0.1690651 -0.0063767"/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/APXS_001_wheels_001_red_sensor_0_wheels_001_red_sensor_0.obj" scale="0.4139922 0.4139885 0.451397 "/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.0204041 0.0768395 0.3845825" rpy="-1.5707965 0.1820427 -0. "/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/APXS_002_wheels_002_black_0_wheels_002_black_0.obj" scale="0.3855481 0.3855481 0.4514027"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.0486792 0.0740127 0.2939331" rpy="-1.5707965 0. 0. "/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/APXS_003_Cube_076_black_0_Cube_076_black_0.obj" scale="0.3855482 0.3855482 0.4514027"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.1470642 0.0776972 0.3177978" rpy="-1.5707965 0. 0. "/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/APXS_004_Cylinder_black_0_Cylinder_black_0.obj" scale="0.5386098 0.5386098 0.6306084"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-0.224541 0.1350447 -0.0022461" rpy="-1.5707965 0. 0. "/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/attachment_041_Cylinder_041_silver_metal_0_Cylinder_041_silver_metal_0.obj" scale="0.002557 0.002557 0.002557"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-0.172439 0.1212981 -0.1923462" rpy="-1.5707965 0. 0. "/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/attachment_007_Plane_007_silver_metal_0_Plane_007_silver_metal_0.obj" scale="0.0203416 0.0147812 0.1646361"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.1303589 0.1310241 -0.1923462" rpy="-1.5707965 0. 0. "/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/attachment_006_Plane_006_silver_metal_0_Plane_006_silver_metal_0.obj" scale="0.0203416 0.0147812 0.1646361"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-0.0270874 0.141632 -0.2469788" rpy="1.570798 0.0000016 1.5707964"/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/attachment_080_Cube_080_silver_metal_0_Cube_080_silver_metal_0.obj" scale="0.0156034 0.0206397 0.0029843"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.0082898 0.1358565 0.2869263" rpy="-1.5707965 0. 0. "/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/attachment_005_Plane_005_silver_metal_0_Plane_005_silver_metal_0.obj" scale="0.0203416 0.0147812 0.0339739"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.232854 0.1460427 0.2807739" rpy="-1.5707965 0. 0. "/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/attachment_075_Cube_075_silver_metal_0_Cube_075_silver_metal_0.obj" scale="0.0156034 0.0156034 0.0029843"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-0.2309241 0.1460427 0.2807739" rpy="3.1415927 0. 3.1415927"/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/attachment_077_Cube_077_silver_metal_0_Cube_077_silver_metal_0.obj" scale="0.0156034 0.0156034 0.0029843"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.2880847 0.1503942 -0.021416 " rpy="-1.5651225 0.0051784 0.0725363"/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/solarPanel_wheels_004_silver_metal_0_wheels_004_silver_metal_0.obj" scale="0.5869197 0.6009468 0.7220386"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.2880847 0.1503942 -0.021416 " rpy="-1.5651225 0.0051784 0.0725363"/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/solarPanel_wheels_004_black_0_wheels_004_black_0.obj" scale="0.5869197 0.6009468 0.7220386"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.2880847 0.1503942 -0.021416 " rpy="-1.5651225 0.0051784 0.0725363"/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/solarPanel_wheels_004_solar_001_0_wheels_004_solar_001_0.obj" scale="0.5869197 0.6009468 0.7220386"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.2880847 0.1503942 -0.021416 " rpy="-1.5651225 0.0051784 0.0725363"/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/solarPanel_wheels_004_Material_002_0_wheels_004_Material_002_0.obj" scale="0.5869197 0.6009468 0.7220386"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0011804 0.1122519 0.0243774" rpy="-1.5707965 0.1820427 -0. "/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/Body_body_top_body_top.obj" scale="0.5 0.5 0.5"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.0016626 0.17169 0.0209961" rpy="-1.5707965 0.1820427 -0. "/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/Body_body_main_body_main.obj" scale="0.5 0.5 0.5"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.0016626 0.17169 0.0209961" rpy="-1.5707965 0.1820427 -0. "/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/body_attachments.obj" scale="0.5 0.5 0.5"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.1603076 0.1486673 0.3447998" rpy="-1.4469512 0. 0. "/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/Body_NavCam_left_Cube_078_silver_metal_0_Cube_078_silver_metal_0.obj" scale="0.6903735 0.6903736 0.6903736"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="-0.1587976 0.1486673 0.3447998" rpy="-1.4469512 0. 0. "/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/Body_NavCam_right_Cube_079_silver_metal_0_Cube_079_silver_metal_0.obj" scale="0.6903735 0.6903736 0.6903736"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.13099 0.0772696 0.4068896" rpy="-1.5773519 0.1690651 -0.0063767"/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/APXS_001_wheels_001_black_0_wheels_001_black_0.obj" scale="0.4139922 0.4139885 0.451397 "/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.13099 0.0772696 0.4068896" rpy="-1.5773519 0.1690651 -0.0063767"/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/APXS_001_wheels_001_glass_0_wheels_001_glass_0.obj" scale="0.4139922 0.4139885 0.451397 "/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.13099 0.0772696 0.4068896" rpy="-1.5773519 0.1690651 -0.0063767"/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/APXS_001_wheels_001_red_sensor_0_wheels_001_red_sensor_0.obj" scale="0.4139922 0.4139885 0.451397 "/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.0204041 0.0768395 0.3845825" rpy="-1.5707965 0.1820427 -0. "/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/APXS_002_wheels_002_black_0_wheels_002_black_0.obj" scale="0.3855481 0.3855481 0.4514027"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.0486792 0.0740127 0.2939331" rpy="-1.5707965 0. 0. "/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/APXS_003_Cube_076_black_0_Cube_076_black_0.obj" scale="0.3855482 0.3855482 0.4514027"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.1470642 0.0776972 0.3177978" rpy="-1.5707965 0. 0. "/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/APXS_004_Cylinder_black_0_Cylinder_black_0.obj" scale="0.5386098 0.5386098 0.6306084"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="-0.224541 0.1350447 -0.0022461" rpy="-1.5707965 0. 0. "/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/attachment_041_Cylinder_041_silver_metal_0_Cylinder_041_silver_metal_0.obj" scale="0.002557 0.002557 0.002557"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="-0.172439 0.1212981 -0.1923462" rpy="-1.5707965 0. 0. "/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/attachment_007_Plane_007_silver_metal_0_Plane_007_silver_metal_0.obj" scale="0.0203416 0.0147812 0.1646361"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.1303589 0.1310241 -0.1923462" rpy="-1.5707965 0. 0. "/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/attachment_006_Plane_006_silver_metal_0_Plane_006_silver_metal_0.obj" scale="0.0203416 0.0147812 0.1646361"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="-0.0270874 0.141632 -0.2469788" rpy="1.570798 0.0000016 1.5707964"/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/attachment_080_Cube_080_silver_metal_0_Cube_080_silver_metal_0.obj" scale="0.0156034 0.0206397 0.0029843"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.0082898 0.1358565 0.2869263" rpy="-1.5707965 0. 0. "/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/attachment_005_Plane_005_silver_metal_0_Plane_005_silver_metal_0.obj" scale="0.0203416 0.0147812 0.0339739"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.232854 0.1460427 0.2807739" rpy="-1.5707965 0. 0. "/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/attachment_075_Cube_075_silver_metal_0_Cube_075_silver_metal_0.obj" scale="0.0156034 0.0156034 0.0029843"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="-0.2309241 0.1460427 0.2807739" rpy="3.1415927 0. 3.1415927"/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/attachment_077_Cube_077_silver_metal_0_Cube_077_silver_metal_0.obj" scale="0.0156034 0.0156034 0.0029843"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="Wheel_back_left">
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/Wheel_back_left_Circle_006_silver_metal_0_Circle_006_silver_metal_0.obj" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/Wheel_back_left_Circle_006_silver_metal_0_Circle_006_silver_metal_0.obj" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="Wheel_back_right">
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/Wheel_back_right_Circle_003_silver_metal_0_Circle_003_silver_metal_0.obj" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/Wheel_back_right_Circle_003_silver_metal_0_Circle_003_silver_metal_0.obj" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="Wheel_front_left">
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/Wheel_front_left_Circle_005_silver_metal_0_Circle_005_silver_metal_0.obj" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/Wheel_front_left_Circle_005_silver_metal_0_Circle_005_silver_metal_0.obj" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="Wheel_front_right">
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/Wheel_front_right_Circle_002_silver_metal_0_Circle_002_silver_metal_0.obj" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/Wheel_front_right_Circle_002_silver_metal_0_Circle_002_silver_metal_0.obj" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="Wheel_middle_left">
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/Wheel_middle_left_Circle_007_black_0_Circle_007_black_0.obj" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/Wheel_middle_left_Circle_007_black_0_Circle_007_black_0.obj" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="Wheel_middle_right">
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/Wheel_middle_right_Circle_004_black_0_Circle_004_black_0.obj" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/Wheel_middle_right_Circle_004_black_0_Circle_004_black_0.obj" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="bogie_left">
+    <visual>
+      <origin xyz="-0.0149515 -0.006688 -0.0095517" rpy="-0.0000002 0. 0. "/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/Cube_024.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.0643527 -0.4817684 -0.31751 " rpy="1.5708816 -0.1804329 0.0106592"/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/bogie_left_midle_motor_black_motor_motor_black.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-0.0159573 0.0228872 -0.0135221" rpy="-0.0000002 0. 0. "/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/Cube_022.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.0149515 -0.006688 -0.0095517" rpy="-0.0000002 0. 0. "/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/Cube_024.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.0643527 -0.4817684 -0.31751 " rpy="1.5708816 -0.1804329 0.0106592"/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/bogie_left_midle_motor_black_motor_motor_black.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="-0.0159573 0.0228872 -0.0135221" rpy="-0.0000002 0. 0. "/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/Cube_022.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="bogie_right">
+    <visual>
+      <origin xyz="0.0027187 0.0264674 -0.0129617" rpy="-0.0000002 0. 0. "/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/Cube_018.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.0037099 -0.004912 -0.0123988" rpy="-0.0000002 0. 0. "/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/Cube_020.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-0.0752902 -0.1173464 -0.3188631" rpy="1.570882 -0.1804329 -3.1309335"/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/bogie_right_midle_motor_black_motor_motor_black.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0027187 0.0264674 -0.0129617" rpy="-0.0000002 0. 0. "/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/Cube_018.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.0037099 -0.004912 -0.0123988" rpy="-0.0000002 0. 0. "/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/Cube_020.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="-0.0752902 -0.1173464 -0.3188631" rpy="1.570882 -0.1804329 -3.1309335"/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/bogie_right_midle_motor_black_motor_motor_black.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="depth_cam"/>
+  <link name="rocker_left">
+    <visual>
+      <origin xyz="0.0600604 -0.0091704 -0.0084297" rpy="0.0349064 0. 0.0000004"/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/Cube_027.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.0618278 0.3836201 -0.218992 " rpy="-0.0000003 0. 0.0000004"/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/Cube_023.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0600604 -0.0091704 -0.0084297" rpy="0.0349064 0. 0.0000004"/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/Cube_027.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.0618278 0.3836201 -0.218992 " rpy="-0.0000003 0. 0.0000004"/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/Cube_023.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="rocker_right">
+    <visual>
+      <origin xyz="-0.0616314 -0.0044207 0.0009594" rpy="0.0349064 0. 0.0000004"/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/Cube_021.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-0.0637702 0.3876569 -0.2102048" rpy="-0.0000003 0. 0.0000004"/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/Cube_019.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.0616314 -0.0044207 0.0009594" rpy="0.0349064 0. 0.0000004"/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/Cube_021.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="-0.0637702 0.3876569 -0.2102048" rpy="-0.0000003 0. 0.0000004"/>
+      <geometry>
+        <mesh filename="package://rover_description/meshes/Cube_019.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+</robot>
