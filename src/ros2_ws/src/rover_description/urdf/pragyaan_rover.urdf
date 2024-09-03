@@ -339,85 +339,85 @@
   </link>
   <link name="Wheel_back_left">
     <visual>
-      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <origin xyz="-0.05 0. 0." rpy="0. 0. 0."/>
       <geometry>
-        <mesh filename="package://rover_description/meshes/Wheel_back_left_Circle_006_silver_metal_0_Circle_006_silver_metal_0.obj" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://rover_description/meshes/Wheel_back_left_Circle_006_silver_metal_0_Circle_006_silver_metal_0.obj" scale="2 1 1"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <origin xyz="-0.05 0. 0." rpy="0. 0. 0."/>
       <geometry>
-        <mesh filename="package://rover_description/meshes/Wheel_back_left_Circle_006_silver_metal_0_Circle_006_silver_metal_0.obj" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://rover_description/meshes/Wheel_back_left_Circle_006_silver_metal_0_Circle_006_silver_metal_0.obj" scale="2 1 1"/>
       </geometry>
     </collision>
   </link>
   <link name="Wheel_back_right">
     <visual>
-      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <origin xyz="0.05 0. 0." rpy="0. 0. 0."/>
       <geometry>
-        <mesh filename="package://rover_description/meshes/Wheel_back_right_Circle_003_silver_metal_0_Circle_003_silver_metal_0.obj" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://rover_description/meshes/Wheel_back_right_Circle_003_silver_metal_0_Circle_003_silver_metal_0.obj" scale="2 1 1"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <origin xyz="0.05 0. 0." rpy="0. 0. 0."/>
       <geometry>
-        <mesh filename="package://rover_description/meshes/Wheel_back_right_Circle_003_silver_metal_0_Circle_003_silver_metal_0.obj" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://rover_description/meshes/Wheel_back_right_Circle_003_silver_metal_0_Circle_003_silver_metal_0.obj" scale="2 1 1"/>
       </geometry>
     </collision>
   </link>
   <link name="Wheel_front_left">
     <visual>
-      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <origin xyz="-0.05 0. 0." rpy="0. 0. 0."/>
       <geometry>
-        <mesh filename="package://rover_description/meshes/Wheel_front_left_Circle_005_silver_metal_0_Circle_005_silver_metal_0.obj" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://rover_description/meshes/Wheel_front_left_Circle_005_silver_metal_0_Circle_005_silver_metal_0.obj" scale="2 1 1"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <origin xyz="-0.05 0. 0." rpy="0. 0. 0."/>
       <geometry>
-        <mesh filename="package://rover_description/meshes/Wheel_front_left_Circle_005_silver_metal_0_Circle_005_silver_metal_0.obj" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://rover_description/meshes/Wheel_front_left_Circle_005_silver_metal_0_Circle_005_silver_metal_0.obj" scale="2 1 1"/>
       </geometry>
     </collision>
   </link>
   <link name="Wheel_front_right">
     <visual>
-      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <origin xyz="0.05 0. 0." rpy="0. 0. 0."/>
       <geometry>
-        <mesh filename="package://rover_description/meshes/Wheel_front_right_Circle_002_silver_metal_0_Circle_002_silver_metal_0.obj" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://rover_description/meshes/Wheel_front_right_Circle_002_silver_metal_0_Circle_002_silver_metal_0.obj" scale="2 1 1"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <origin xyz="0.05 0. 0." rpy="0. 0. 0."/>
       <geometry>
-        <mesh filename="package://rover_description/meshes/Wheel_front_right_Circle_002_silver_metal_0_Circle_002_silver_metal_0.obj" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://rover_description/meshes/Wheel_front_right_Circle_002_silver_metal_0_Circle_002_silver_metal_0.obj" scale="2 1 1"/>
       </geometry>
     </collision>
   </link>
   <link name="Wheel_middle_left">
     <visual>
-      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <origin xyz="-0.05 0. 0." rpy="0. 0. 0."/>
       <geometry>
-        <mesh filename="package://rover_description/meshes/Wheel_middle_left_Circle_007_black_0_Circle_007_black_0.obj" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://rover_description/meshes/Wheel_middle_left_Circle_007_black_0_Circle_007_black_0.obj" scale="2 1 1"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <origin xyz="-0.05 0. 0." rpy="0. 0. 0."/>
       <geometry>
-        <mesh filename="package://rover_description/meshes/Wheel_middle_left_Circle_007_black_0_Circle_007_black_0.obj" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://rover_description/meshes/Wheel_middle_left_Circle_007_black_0_Circle_007_black_0.obj" scale="2 1 1"/>
       </geometry>
     </collision>
   </link>
   <link name="Wheel_middle_right">
     <visual>
-      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <origin xyz="0.05 0. 0." rpy="0. 0. 0."/>
       <geometry>
-        <mesh filename="package://rover_description/meshes/Wheel_middle_right_Circle_004_black_0_Circle_004_black_0.obj" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://rover_description/meshes/Wheel_middle_right_Circle_004_black_0_Circle_004_black_0.obj" scale="2 1 1"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <origin xyz="0.05 0. 0." rpy="0. 0. 0."/>
       <geometry>
-        <mesh filename="package://rover_description/meshes/Wheel_middle_right_Circle_004_black_0_Circle_004_black_0.obj" scale="0.01 0.01 0.01"/>
+        <mesh filename="package://rover_description/meshes/Wheel_middle_right_Circle_004_black_0_Circle_004_black_0.obj" scale="2 1 1"/>
       </geometry>
     </collision>
   </link>
