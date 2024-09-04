@@ -25,7 +25,6 @@ endif()
 
 install(
   DIRECTORY 
-    config 
     urdf 
     launch 
     meshes

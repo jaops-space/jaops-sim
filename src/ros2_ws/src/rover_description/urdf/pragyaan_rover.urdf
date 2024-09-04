@@ -75,6 +75,14 @@
     <child link="Wheel_middle_right"/>
     <axis xyz="1. 0. 0."/>
   </joint>
+  <joint name="base_body_joint" type="fixed">
+    <origin xyz='0 0 0' rpy='1.571 0 0'/>
+    <parent link="base_link"/>
+    <child link="Pragyaan"/>
+  </joint>
+
+  <link name="base_link">
+  </link>
   <link name="Body_NavCam_left_NavCam_left"/>
   <link name="Body_NavCam_right_NavCam_right"/>
   <link name="Pragyaan">
