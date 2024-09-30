@@ -251,7 +251,7 @@ class PragyaanSubscriber(Node):  # type: ignore[misc]
         time = Time.from_msg(imu.header.stamp)
         rr.set_time_nanos("ros_time", time.nanoseconds)
 
-        # Capture time-series data for the linear and angular velocities
+        # Capture time-series data for the imu orientation
         rr.log("imu/orientation/x", rr.Scalar(imu.orientation.x))
         rr.log("imu/orientation/y", rr.Scalar(imu.orientation.y))
         rr.log("imu/orientation/z", rr.Scalar(imu.orientation.z))
@@ -261,13 +261,30 @@ class PragyaanSubscriber(Node):  # type: ignore[misc]
         time = Time.from_msg(jointstates.header.stamp)
         rr.set_time_nanos("ros_time", time.nanoseconds)
 
-        # Capture time-series data for the linear and angular velocities
-        rr.log("joint_states/position/wheel_fl", rr.Scalar(jointstates.position[2]))
-        rr.log("joint_states/position/wheel_fr", rr.Scalar(jointstates.position[4]))
-        rr.log("joint_states/position/wheel_bl", rr.Scalar(jointstates.position[6]))
-        rr.log("joint_states/position/wheel_br", rr.Scalar(jointstates.position[9]))
-        rr.log("joint_states/position/wheel_ml", rr.Scalar(jointstates.position[7]))
-        rr.log("joint_states/position/wheel_mr", rr.Scalar(jointstates.position[8]))
+        # Capture time-series data for the joint states
+        ##### Positions #####
+        rr.log("JointPosition/position/wheel_fl", rr.Scalar(jointstates.position[2]))
+        rr.log("JointPosition/position/wheel_fr", rr.Scalar(jointstates.position[4]))
+        rr.log("JointPosition/position/wheel_bl", rr.Scalar(jointstates.position[6]))
+        rr.log("JointPosition/position/wheel_br", rr.Scalar(jointstates.position[9]))
+        rr.log("JointPosition/position/wheel_ml", rr.Scalar(jointstates.position[7]))
+        rr.log("JointPosition/position/wheel_mr", rr.Scalar(jointstates.position[8]))
+
+        ##### Velocities #####
+        rr.log("JointVelocity/velocity/wheel_fl", rr.Scalar(jointstates.velocity[2]))
+        rr.log("JointVelocity/velocity/wheel_fr", rr.Scalar(jointstates.velocity[4]))
+        rr.log("JointVelocity/velocity/wheel_bl", rr.Scalar(jointstates.velocity[6]))
+        rr.log("JointVelocity/velocity/wheel_br", rr.Scalar(jointstates.velocity[9]))
+        rr.log("JointVelocity/velocity/wheel_ml", rr.Scalar(jointstates.velocity[7]))
+        rr.log("JointVelocity/velocity/wheel_mr", rr.Scalar(jointstates.velocity[8]))
+
+        # ##### Efforts #####
+        rr.log("JointEffort/effort/wheel_fl", rr.Scalar(jointstates.effort[2]))
+        rr.log("JointEffort/effort/wheel_fr", rr.Scalar(jointstates.effort[4]))
+        rr.log("JointEffort/effort/wheel_bl", rr.Scalar(jointstates.effort[6]))
+        rr.log("JointEffort/effort/wheel_br", rr.Scalar(jointstates.effort[9]))
+        rr.log("JointEffort/effort/wheel_ml", rr.Scalar(jointstates.effort[7]))
+        rr.log("JointEffort/effort/wheel_mr", rr.Scalar(jointstates.effort[8]))
 
 
 def main() -> None:
