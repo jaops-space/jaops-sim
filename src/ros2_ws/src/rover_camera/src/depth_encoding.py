@@ -46,7 +46,7 @@ class DepthImageConverter(Node):
             # Publish the converted image
             self.publisher_.publish(converted_msg)
             
-            self.get_logger().info("Depth image converted and published")
+            # self.get_logger().info("Depth image converted and published")
 
         except CvBridgeError as e:
             self.get_logger().error(f"Failed to convert depth image: {str(e)}")
