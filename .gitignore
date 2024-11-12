@@ -164,6 +164,9 @@ cython_debug/
 # Thumbnail
 .thumbs
 
+# VS Code
+.vscode/
+
 # colcon/CMake output
 devel/
 log/
