@@ -5,7 +5,7 @@ This folder includes packages and robot operation related software for JAOPS spa
 
 ## Table of Contents
 * [Getting Started](#getting-started)
-* [Welcome to the MOON](#welcom-to-the-moon)
+* [Welcome to the MOON](#welcome-to-the-moon)
 * [Foxglove Studio](#foxglove-visualization)
 * [Rerun.io](#rerun-visualization)
 * [Trouble Shooting](#trouble-shooting)
@@ -62,7 +62,7 @@ ros2 launch rover_isaac sim_demo.launch.py play_sim_on_start:=true
 <!-- ------------------------------------------------------ -->
 
 ## Foxglove visualization
-### Prerequisties
+### Prerequisites
 Follow the ROS Foxglove bridge installation from [official document](https://docs.foxglove.dev/docs/connecting-to-data/ros-foxglove-bridge/).
 
 ```bash
@@ -70,7 +70,7 @@ sudo apt install ros-$ROS_DISTRO-foxglove-bridge
 ```
 
 ### Usage
-* Open and play the simulation following thie [section](#welcom-to-the-moon).
+* Open and play the simulation following the [section](#welcome-to-the-moon).
 
 * Launch the foxglove bridge by the following command.
 
@@ -86,7 +86,7 @@ ros2 launch rover_isaac foxglove_demo.launch.py
 <!-- ------------------------------------------------------ -->
 
 ## Rerun visualization
-### Prerequisties
+### Prerequisites
 Follow the python installation procedure in rerun.io [official document](https://rerun.io/docs/getting-started/quick-start/python).
 
 ```bash
@@ -101,7 +101,7 @@ source venv/bin/active
 ```
 
 ### Usage
-* Open and play the simulation following thie [section](#welcom-to-the-moon).
+* Open and play the simulation following the [section](#welcome-to-the-moon).
 
 * Run the python script to launch rerun GUI
 ```bash
@@ -115,6 +115,6 @@ python3 lunar_demo_rerun.py
 
 <!-- ------------------------------------------------------ -->
 
-## Trouble-shooting
+## Troubleshooting
 
 Please report bugs using [Issue Tracker](https://github.com/jaops-space/jaops-sim/issues).
