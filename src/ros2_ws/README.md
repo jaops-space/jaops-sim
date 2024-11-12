@@ -1,5 +1,5 @@
 # JAOPS ROS2 Workspace
-This folder includes packages and robot operation related software for JAOPS space robotics simulation. 
+This folder includes packages and robot operation related software for JAOPS space robotics simulation.
 
 <!-- ------------------------------------------------------ -->
 
@@ -46,12 +46,16 @@ source install/setup.bash
 
 <!-- ------------------------------------------------------ -->
 
-## Welcom to the MOON
-To launch the lunar surface simulation demo
+## Welcome to the MOON
+To launch the lunar surface simulation demo:
 ```bash
 ros2 launch rover_isaac sim_demo.launch.py
 ```
-Or, if you want to star the simulation immediately after the environment is imported
+Or, if you want to specify a specific .usd:
+```bash
+ros2 launch rover_isaac sim_demo.launch.py gui:="~/jaops/jaops-sim/scenes/lunar_surface_demo_ros2.usd"
+```
+Or, if you want to star the simulation immediately after the environment is imported:
 ```bash
 ros2 launch rover_isaac sim_demo.launch.py play_sim_on_start:=true
 ```
@@ -62,7 +66,7 @@ ros2 launch rover_isaac sim_demo.launch.py play_sim_on_start:=true
 Follow the ROS Foxglove bridge installation from [official document](https://docs.foxglove.dev/docs/connecting-to-data/ros-foxglove-bridge/).
 
 ```bash
-sudo apt install ros-$ROS_DISTRO-foxglove-bridge 
+sudo apt install ros-$ROS_DISTRO-foxglove-bridge
 ```
 
 ### Usage
