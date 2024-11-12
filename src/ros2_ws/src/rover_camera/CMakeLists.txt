@@ -34,7 +34,7 @@ install(
 
 install(
   PROGRAMS
-    src/depth_encoding.py
+    scripts/depth_encoding.py
 
   DESTINATION
     lib/${PROJECT_NAME}
