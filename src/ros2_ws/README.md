@@ -18,6 +18,14 @@ Before getting started, we assume that you have run through the main document of
 ### Prerequisites
 * [Ubuntu 22.04](https://ubuntu.com/tutorials/install-ubuntu-desktop#1-overview)
 * [ros2-humble installation](https://docs.ros.org/en/humble/Installation/Alternatives/Ubuntu-Development-Setup.html)
+* Git LFS which can be installed as follows:
+```
+curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+sudo apt install git-lfs
+git lfs install
+```
+
+(Note: If you have installed Git LFS after cloning this repo, you can run `git lfs fetch` followed by `git lfs pull` to download all the `usd` files which are referenced via git lfs)
 
 ### Build & Install
 * Source ros2 to the terminal
@@ -116,5 +124,15 @@ python3 lunar_demo_rerun.py
 <!-- ------------------------------------------------------ -->
 
 ## Troubleshooting
+
+### Isaacsim doesn't start
+
+If you have installed isaac-sim to a location other than the default you can enter the path using the `install_path` argument for `sim_demo.launch.py`
+
+### The Stage doesn't load
+
+* If you have cloned this repo to a location other than $HOME, you can enter the path using the `gui` argument for `sim_demo.launch.py`
+
+* Check that `lunar_surface_demo.usd` is not a pointer file. If it is, you may not have git lfs setup. See [section](#getting-started)
 
 Please report bugs using [Issue Tracker](https://github.com/jaops-space/jaops-sim/issues).
