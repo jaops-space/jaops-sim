@@ -5,6 +5,7 @@ This folder includes packages and robot operation related software for JAOPS spa
 
 ## Table of Contents
 * [Getting Started](#getting-started)
+* [Welcome to the MOON](#welcom-to-the-moon)
 * [Foxglove Studio](#foxglove-visualization)
 * [Rerun.io](#rerun-visualization)
 * [Trouble Shooting](#trouble-shooting)
@@ -45,24 +46,27 @@ source install/setup.bash
 
 <!-- ------------------------------------------------------ -->
 
-<!-- ## Packages description
-
-### [1) rover_description](https://github.com/jaops-space/jaops-sim/tree/dev/foxglove_rerun_integration/src/ros2_ws/src/rover_description)
-
-### [2) rover_camera](https://github.com/jaops-space/jaops-sim/tree/dev/foxglove_rerun_integration/src/ros2_ws/src/rover_camera) -->
-
+## Welcom to the MOON
+To launch the lunar surface simulation demo
+```bash
+ros2 launch rover_isaac sim_demo.launch.py
+```
+Or, if you want to star the simulation immediately after the environment is imported
+```bash
+ros2 launch rover_isaac sim_demo.launch.py play_sim_on_start:=true
+```
 <!-- ------------------------------------------------------ -->
 
 ## Foxglove visualization
 ### Prerequisties
-Follow the ROS Foxglove bridge installation from [official document](https://docs.foxglove.dev/docs/connecting-to-data/ros-foxglove-bridge/) .
+Follow the ROS Foxglove bridge installation from [official document](https://docs.foxglove.dev/docs/connecting-to-data/ros-foxglove-bridge/).
 
 ```bash
 sudo apt install ros-$ROS_DISTRO-foxglove-bridge 
 ```
 
 ### Usage
-* Open and play the [lunar_surface_demo_ros2.usd](https://github.com/jaops-space/jaops-sim/blob/dev/foxglove_rerun_integration/scenes/lunar_surface_demo_ros2.usd) inside the IsaacSim.
+* Open and play the simulation following thie [section](#welcom-to-the-moon).
 
 * Launch the foxglove bridge by the following command.
 
@@ -93,7 +97,7 @@ source venv/bin/active
 ```
 
 ### Usage
-* Open and play the [lunar_surface_demo_ros2.usd](https://github.com/jaops-space/jaops-sim/blob/dev/foxglove_rerun_integration/scenes/lunar_surface_demo_ros2.usd) inside the IsaacSim.
+* Open and play the simulation following thie [section](#welcom-to-the-moon).
 
 * Run the python script to launch rerun GUI
 ```bash
