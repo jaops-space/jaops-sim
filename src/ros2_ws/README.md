@@ -88,7 +88,7 @@ ros2 launch rover_isaac foxglove_demo.launch.py
 * Open Foxglove with [Websocket](https://docs.foxglove.dev/docs/connecting-to-data/frameworks/ros2/#foxglove-websocket) and import the layout for our simulation [here](https://github.com/jaops-space/jaops-sim/blob/dev/foxglove_rerun_integration/src/ros2_ws/demo_foxglove/foxglove_layout/pragyaan.json).
 
 <p align="center">
-  <img src="https://github.com/jaops-space/jaops-sim/blob/dev/foxglove_rerun_integration/images/lunar_demo_foxglove.png" alt="lunar_demo_foxglove.png">
+  <img src="../../images/lunar_demo_foxglove.png" alt="lunar_demo_foxglove.png">
 </p>
 
 <!-- ------------------------------------------------------ -->
@@ -118,7 +118,7 @@ python3 lunar_demo_rerun.py
 ```
 
 <p align="center">
-  <img src="https://github.com/jaops-space/jaops-sim/blob/dev/foxglove_rerun_integration/images/lunar_demo_rerun.png" alt="lunar_demo_rerun.png">
+  <img src="../../images/lunar_demo_rerun.png" alt="lunar_demo_rerun.png">
 </p>
 
 <!-- ------------------------------------------------------ -->
