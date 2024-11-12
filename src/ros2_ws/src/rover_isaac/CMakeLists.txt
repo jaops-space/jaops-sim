@@ -7,6 +7,7 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
+find_package(rclpy REQUIRED)
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
@@ -26,8 +27,18 @@ endif()
 install(
   DIRECTORY 
     launch 
+    scripts
   DESTINATION 
     share/${PROJECT_NAME}/
+)
+
+# Install Python executables
+install(
+  PROGRAMS
+    scripts/run_isaacsim.py
+    scripts/open_isaacsim_stage.py
+  DESTINATION 
+    lib/${PROJECT_NAME}
 )
 
 ament_package()
