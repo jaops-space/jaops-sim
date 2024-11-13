@@ -67,6 +67,10 @@ Or, if you want to star the simulation immediately after the environment is impo
 ```bash
 ros2 launch rover_isaac sim_demo.launch.py play_sim_on_start:=true
 ```
+For rectangular trajectory motion.
+```bash
+ros2 launch rover_nav rectangle.launch.py side_length:=3.0 rounds:=1
+```
 <!-- ------------------------------------------------------ -->
 
 ## Foxglove visualization
