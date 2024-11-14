@@ -29,7 +29,10 @@ The contact and capture sequence itself is out of the scope of this demo.
 3. launch foxglove and connect via Foxglove WebSocket protocol
 4. import the layout `satelliteManipulation_foxglove.json`
 
+
 ## ROSBag Visualization
 1. Launch foxglove (no need for the foxglove bridge)
 2. (optional) in a separate terminal: `ros2 bag play bags/satellite_manipulation` this will decompress and play the bag. Stop the bag play with Ctrl-C.
 2. From foxglove: click on Open Local File and select satellite_manipulation.db3
+
+![Foxglove Visualization](./satellite_graphs_foxglove.png)
