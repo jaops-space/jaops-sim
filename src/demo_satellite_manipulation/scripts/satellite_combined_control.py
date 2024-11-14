@@ -1,5 +1,6 @@
 import asyncio
 from omni.isaac.dynamic_control import _dynamic_control
+import time
 
 dc = _dynamic_control.acquire_dynamic_control_interface()
 
@@ -22,13 +23,15 @@ linear_vel_pause = (0.25, 0, 0)
 servicer_handle = dc.get_rigid_body("/scene/COSMIC/Servicer/Body")
 client_handle = dc.get_rigid_body("/scene/COSMIC/Client")
 
-# set initial conditions: Client is tumbling
-dc.wake_up_rigid_body(client_handle)
-dc.set_rigid_body_angular_velocity(client_handle, angular_vel)
-
 
 async def combined_control():
     await omni.kit.app.get_app().next_update_async()
+    print("SLEEP")  # time to start `ros2 bag record`
+    await asyncio.sleep(3)
+    
+    # set initial conditions: Client is tumbling
+    dc.wake_up_rigid_body(client_handle)
+    dc.set_rigid_body_angular_velocity(client_handle, angular_vel)
 
     # articulation and revolute joint handles
     art = dc.get_articulation("/scene/COSMIC/Servicer/Body")
@@ -72,3 +75,5 @@ async def combined_control():
 
 omni.timeline.get_timeline_interface().play()
 asyncio.ensure_future(combined_control())
+
+

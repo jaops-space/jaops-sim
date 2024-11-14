@@ -172,3 +172,6 @@ devel/
 log/
 build/
 install/
+
+# ROS
+*.db3
