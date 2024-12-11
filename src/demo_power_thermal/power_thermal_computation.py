@@ -1,23 +1,53 @@
 import numpy as np
 
+# Stephan-Boltzmann constant
 SIGMA = 5.670374419 * 10 ** (-8)  # (W / (m2 X K^4)
 
+# Solar flux at 1 Astronomical Unit
 SUN_POWER = 1376  # (W / m2)
+
+# Solar cell efficiency for power generation
 SOLAR_CELL_EFF = 0.3  # 30%
 
-# @TODO add references
+# Optical properties of Lunar regolith
+# reference:
+# Heiken, G.H., Vaniman, D.T., & French, B.M. (Eds.). (1991). Lunar Sourcebook: A User’s Guide to the Moon. Cambridge University Press
+# https://www.lpi.usra.edu/publications/books/lunar_sourcebook/pdf/LunarSourceBook.pdf
 LUNAR_ALPHA = 0.75
 LUNAR_EPSILON = 0.8
 
+# Optical properties of the solar panel
 PANEL_ALPHA = 0.9  # solar cell azurspace = 0.91
 PANEL_ALPHA *= 0.5  # assuming half is not covered by solar cell but radiator material to reduce temperature
 PANEL_EPSILON = 0.9
 
+# Optical properties of the solar panel support structures
+# Solar Absorptance and Thermal Emittance of Some Common Spacecraft Thermal Control Coatings
 # https://ntrs.nasa.gov/api/citations/19840015630/downloads/19840015630.pdf
+# Black anodized aluminum: alpha = 0.88, epsilon = 0.88
 SUPPORT_ALPHA = 0.88
 SUPPORT_EPSILON = 0.88
 
 # Example Sun elevation and azimuth data for a lunar day at mid-latitude landing site
+# Reference: Atlas crater at 47.6° N, 44.1° E, between 2023/04/24 and 2023/05/10 (ispace M1 mission parameters)
+SUN_EL = [
+    0.1,
+    5.937528,
+    14.040576,
+    21.762088,
+    28.823323,
+    34.867925,
+    39.45594,
+    42.119376,
+    42.510898,
+    40.576567,
+    36.587823,
+    30.996039,
+    24.261371,
+    16.768289,
+    8.817421,
+    0.1,
+]
 SUN_AZ = [
     89.9281395,
     96.490749,
@@ -36,24 +66,52 @@ SUN_AZ = [
     260.777898,
     269.855456,
 ]
-SUN_EL = [
-    0,
-    5.937528,
-    14.040576,
-    21.762088,
-    28.823323,
-    34.867925,
-    39.45594,
-    42.119376,
-    42.510898,
-    40.576567,
-    36.587823,
-    30.996039,
-    24.261371,
-    16.768289,
-    8.817421,
-    0,
-]
+
+
+def compute_view_factor_to_sky_approx(dot_products):
+    """
+    Approximately compute the view factor to the sky.
+    This function calculates the view factor from a surface to the sky
+    by considering the sky as a hemispherical dome.
+
+    Parameters:
+    dot_products (numpy.ndarray): Array of dot products between surface normals and the direction to the sky.
+
+    Returns:
+    numpy.ndarray: Array of view factors to the sky, with values between 0 and 1.
+
+    Raises:
+    AssertionError: If any of the computed view factors are not between 0 and 1.
+    """
+    negative_mask = dot_products < 0
+    view_factors = (1 + dot_products) / 2
+    view_factors[negative_mask] = 0
+    view_factors = np.nan_to_num(view_factors)  # also set NaN to 0
+    assert np.all(
+        (view_factors >= 0) & (view_factors <= 1)
+    ), f"view factors are not between 0 and 1"
+    return view_factors
+
+
+def compute_view_factor_to_sun_approx(dot_products):
+    """
+    Approximately compute the view factor to the Sun.
+    This function assumes a distant light source with parallel rays to a planar surface.
+
+    Parameters:
+    dot_products (numpy.ndarray): Array of dot products between surface normals and the direction to the Sun.
+
+    Returns:
+    numpy.ndarray: Array of view factors, with values between 0 and 1.
+    """
+    negative_mask = dot_products < 0
+    view_factors = dot_products
+    view_factors[negative_mask] = 0
+    view_factors = np.nan_to_num(view_factors)  # also set NaN to 0
+    assert np.all(
+        (view_factors >= 0) & (view_factors <= 1)
+    ), f"view factors are not between 0 and 1"
+    return view_factors
 
 
 def compute_power(dot_products, cell_area):
@@ -65,26 +123,31 @@ def compute_power(dot_products, cell_area):
     area of the solar cells, and the efficiency of the solar cells.
 
     Args:
-        dot_products (numpy.ndarray): Array of dot products between the sunlight direction vectors
-                                      and the normal vectors of the solar cell surfaces.
+        dot_products (numpy.ndarray): Array of dot products between the sunlight direction vectors and the normal vectors of the solar cell surfaces.
         cell_area (float): The area of the solar cells in square meters.
 
     Returns:
         numpy.ndarray: Array of power generation values for each solar cell.
     """
+    negative_mask = dot_products < 0
+    cos_theta = dot_products
+    cos_theta[negative_mask] = (
+        0  # negative dot products means the Sun is on the back of the surface = no power generation
+    )
 
-    power_generation = SUN_POWER * cell_area * np.abs(dot_products) * SOLAR_CELL_EFF
+    power_generation = SUN_POWER * cell_area * cos_theta * SOLAR_CELL_EFF
     return power_generation
 
 
-def compute_thermal_surface(dot_products, normals, alpha, epsilon):
-    # @TODO add alpha and epsilon as arguments
+def compute_thermal_surface(sun_dot_products, normals, alpha, epsilon):
     """
     Compute the lunar surface temperatures assuming each sub-face is independent due to low conductivity.
 
     Parameters:
     dot_products (numpy.ndarray): Array of dot products between surface normals and the direction of incoming solar radiation.
     normals (numpy.ndarray): Array of surface normals.
+    alpha (float): Absorptivity of the surface.
+    epsilon (float): Emissivity of the surface.
 
     Returns:
     numpy.ndarray: Array of computed surface temperatures.
@@ -94,16 +157,14 @@ def compute_thermal_surface(dot_products, normals, alpha, epsilon):
     - Temperatures are computed in Kelvin.
     - Any infinite temperatures resulting from division by zero are set to NaN.
     """
-    # @TODO add view factor adjustment?
-    q_sun = np.abs(dot_products) * alpha * SUN_POWER  # (per unit surface)
+    view_factors_sun = compute_view_factor_to_sun_approx(sun_dot_products)
+    q_sun = view_factors_sun * alpha * SUN_POWER  # (per unit surface)
 
-    # Note: use clip so that negative dotproducts are zeroed out
-    # @TODO replace clip by np.abs?
-    # @TODO add view factor adjustment?
     n_space = [0, 0, 1]
+    view_factors_space = compute_view_factor_to_sky_approx(np.dot(normals, n_space))
     q_space = (
-        np.clip(np.dot(normals, n_space), 0, None) * epsilon * SIGMA
-    )  # (per unit surface and without T^4 term).
+        view_factors_space * epsilon * SIGMA
+    )  # (per unit surface and without the T^4 term).
 
     temperatures = (q_sun / q_space) ** (1 / 4)
     temperatures[np.isinf(temperatures)] = np.nan
@@ -124,19 +185,12 @@ def compute_thermal_node(sun_dot_products, areas, normals, alpha, epsilon):
     Returns:
     float: Computed temperature of the node.
     """
-
-    # @TODO add view factor adjustment?
-    q_sun = np.abs(sun_dot_products) * areas * alpha * SUN_POWER
+    view_factors_sun = compute_view_factor_to_sun_approx(sun_dot_products)
+    q_sun = view_factors_sun * areas * alpha * SUN_POWER
 
     n_space = [0, 0, 1]
-    view_fact_space = np.dot(normals, n_space)
-    negative_mask = view_fact_space < 0
-    view_fact_space = 0.5 + 0.5 * view_fact_space
-    view_fact_space[negative_mask] = 0
-    assert np.all(
-        (view_fact_space >= 0) & (view_fact_space <= 1)
-    ), f"view factors are not between 0 and 1"
-    q_space = view_fact_space * areas * epsilon * SIGMA
+    view_factors_space = compute_view_factor_to_sky_approx(np.dot(normals, n_space))
+    q_space = view_factors_space * areas * epsilon * SIGMA  # (without the T^4 term).
 
-    temperature = (np.nansum(q_sun) / np.sum(q_space)) ** (1 / 4)
+    temperature = (np.sum(q_sun) / np.sum(q_space)) ** (1 / 4)
     return temperature

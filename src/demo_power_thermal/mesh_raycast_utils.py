@@ -189,7 +189,7 @@ def compute_sun_to_mesh(mesh_face_centers, path_sun="/World/Sun", output="dotpro
 
     dot_products = np.zeros(
         len(mesh_face_centers)
-    )  # todo simplify: only compute dot_products at the end, based on normals
+    )  # @TODO simplify: only compute dot_products at the end, based on normals
     normals = np.zeros((len(mesh_face_centers), 3))
     hit_distances = []  # for debug
 
@@ -210,7 +210,9 @@ def compute_sun_to_mesh(mesh_face_centers, path_sun="/World/Sun", output="dotpro
                 hit_distance < 0.001
             ):  # consider that there is no obstruction between the sun and the cell center
                 normals[i] = np.array(hit_info["normal"])
-                dot_products[i] = np.dot(normals[i], direction)
+                dot_products[i] = np.dot(
+                    normals[i], -1 * direction
+                )  # direction is sun to center, so need to flip it
             else:  # cell is in shadow of obstruction
                 dot_products[i] = np.nan
                 normals[i] = np.nan
@@ -307,3 +309,46 @@ def color_cube_test(cube_path):
     for i, mask in enumerate(cube_mask):
         face_colors[mask] = rgb_colors[i]
     return face_colors
+
+
+def quick_stats(data, round_digits=1):
+    """
+    Calculate common statistics for the given data.
+    Usage: pprint(quick_stats(data), sort_dicts=False)
+
+    Parameters:
+    data (array-like): The input data for which statistics are to be calculated.
+    round_digits (int, optional): The number of decimal places to round the results to. Default is 1.
+
+    Returns:
+    dict: A dictionary containing common statistics:
+    """
+    return {
+        key: round(func(data), round_digits)
+        for key, func in zip(
+            [
+                "mean",
+                "median",
+                "std",
+                "min",
+                "max",
+                "25%",
+                "50%",
+                "75%",
+                "NaN count",
+                "NaN %",
+            ],
+            [
+                np.nanmean,
+                np.nanmedian,
+                np.nanstd,
+                np.nanmin,
+                np.nanmax,
+                lambda x: np.nanpercentile(x, 25),
+                lambda x: np.nanpercentile(x, 50),
+                lambda x: np.nanpercentile(x, 75),
+                lambda x: np.isnan(x).sum(),
+                lambda x: (np.isnan(x).sum() / len(x)) * 100,
+            ],
+        )
+    }
