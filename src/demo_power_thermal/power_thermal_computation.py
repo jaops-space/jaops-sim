@@ -1,3 +1,7 @@
+# This module provides functions to compute the power generation of solar cells
+# and the temperature of assets on the lunar surface.
+# Common solar power and thermal constants are also provided
+
 import numpy as np
 
 # Stephan-Boltzmann constant

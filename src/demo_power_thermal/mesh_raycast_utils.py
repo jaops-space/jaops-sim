@@ -1,3 +1,5 @@
+# This module provides utility functions for working with meshes, raycasting, and lighting in an IsaacSim 3D stage.
+
 import omni.isaac.core.utils.prims as prims_utils
 import omni.isaac.core.utils.rotations as rotations_utils
 import omni.isaac.core.utils.mesh as mesh_utils
