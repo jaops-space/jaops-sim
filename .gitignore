@@ -161,11 +161,9 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
-# Thumbnail
+# misc
+.vscode
 .thumbs
-
-# VS Code
-.vscode/
 
 # colcon/CMake output
 devel/
