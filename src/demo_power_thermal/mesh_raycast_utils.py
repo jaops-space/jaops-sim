@@ -277,7 +277,7 @@ def color_conversion(array, norm_mode="minmax", add_tail=False):
     return colors
 
 
-def color_cube_test(cube_path):
+def test_cube_face_color(cube_path):
     """
     Assigns colors to the faces of a cube mesh based on points indices.
     This function tests that the mapping between point indices and cube faces is correct
@@ -287,14 +287,13 @@ def color_cube_test(cube_path):
     Returns:
     np.ndarray: An array of RGB colors assigned to each point in the cube mesh.
     """
+    import matplotlib.colors as mcolors
 
     n_points = len(prims_utils.get_prim_attribute_value(cube_path, "points"))
     # Define six equally spaced hues in the HSV space
     hues = np.linspace(
         0, 1, 6, endpoint=False
     )  # hue = color wheel: hue 0 and hue 1 are the same so do not include endpoint
-    import matplotlib.colors as mcolors
-
     rgb_colors = [mcolors.hsv_to_rgb((hue, 1.0, 1.0)) for hue in hues]
 
     # Define the index ranges based on the mesh point structure
@@ -310,6 +309,39 @@ def color_cube_test(cube_path):
     ]
     for i, mask in enumerate(cube_mask):
         face_colors[mask] = rgb_colors[i]
+    return face_colors
+
+
+def test_cube_vertex_color(cube_path):
+    """
+    Assigns colors to the vertices of each face of a cube mesh based on points indices.
+    This function tests that the mapping between point indices and cube vertices of each face is correct
+
+    Parameters:
+    cube_path (str): The path to the cube mesh.
+    Returns:
+    np.ndarray: An array of RGB colors assigned to each point in the cube mesh.
+    """
+    import matplotlib.colors as mcolors
+
+    n_points = len(prims_utils.get_prim_attribute_value(cube_path, "points"))
+
+    # Define the index ranges based on the mesh point structure
+    assert n_points >= 280
+    face_colors = np.zeros((n_points, 3))
+    cube_mask = [
+        np.arange(0, 100),  # front
+        np.arange(100, 200),  # back
+        np.arange(200, 220),  # four sides
+        np.arange(220, 240),
+        np.arange(240, 260),
+        np.arange(260, 280),
+    ]
+    for mask in cube_mask:
+        face_colors[mask] = [
+            mcolors.hsv_to_rgb((hue, 1.0, 1.0))
+            for hue in np.linspace(0, 1, len(mask), endpoint=False)
+        ]
     return face_colors
 
 
