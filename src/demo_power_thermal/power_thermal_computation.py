@@ -17,12 +17,12 @@ SOLAR_CELL_EFF = 0.3  # 30%
 # reference:
 # Heiken, G.H., Vaniman, D.T., & French, B.M. (Eds.). (1991). Lunar Sourcebook: A User’s Guide to the Moon. Cambridge University Press
 # https://www.lpi.usra.edu/publications/books/lunar_sourcebook/pdf/LunarSourceBook.pdf
-LUNAR_ALPHA = 0.75
-LUNAR_EPSILON = 0.8
+LUNAR_ALPHA = 0.9
+LUNAR_EPSILON = 0.93
 
 # Optical properties of the solar panel
-PANEL_ALPHA = 0.9  # solar cell azurspace = 0.91
-PANEL_ALPHA *= 0.5  # assuming half is not covered by solar cell but radiator material to reduce temperature
+PANEL_ALPHA = 0.91  # solar cell azurspace = 0.91
+# @TODO adjust if solar panel is generating power alpha = 0.9 ( 1 - efficiency)
 PANEL_EPSILON = 0.9
 
 # Optical properties of the solar panel support structures
@@ -160,6 +160,8 @@ def compute_thermal_surface(sun_dot_products, normals, alpha, epsilon):
     - The temperature calculation is based on the balance of incoming solar radiation and outgoing thermal radiation.
     - Temperatures are computed in Kelvin.
     - Any infinite temperatures resulting from division by zero are set to NaN.
+
+    @TODO add the thermal coupling between regolith and bedrock
     """
     view_factors_sun = compute_view_factor_to_sun_approx(sun_dot_products)
     q_sun = view_factors_sun * alpha * SUN_POWER  # (per unit surface)
