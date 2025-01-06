@@ -2,7 +2,7 @@
 Latest update: 2025/01/06
 
 
-|Asset Name | Link | Licence | Author | Reference | Preview |
+|Asset Name | Link | Licence | Author | Reference | <div style="width:200px;">Preview</div> |
 |-----------|------|---------|--------|-----------|---------|
 |Chandrayaan 3 Vikram Lander | [scenes/assets/Vikram.usd](scenes/assets/Vikram.usd) <br> [scenes/assets/Chandrayaan_3_vikram_lander.usdz](scenes/assets/Chandrayaan_3_vikram_lander.usdz) | CC BY | Anish Dombale (*) | Initial source available on [Sketchfab](https://sketchfab.com/3d-models/chandrayaan-3-vikram-lander-96dbe26896d541c297e53120a3f6eb16) | <img src="./images/asset_VikramLander.png" height="150"> |
 |Chandrayaan 3 Pragyaan Rover | [scenes/assets/pragyaan_rover.usd](scenes/assets/pragyaan_rover.usd) <br> [scenes/assets/pragyaan_rover_ros2.usd](scenes/assets/pragyaan_rover_ros2.usd) [scenes/assets/chandrayaan_3_rover.usdz](./scenes/assets/chandrayaan_3_rover.usdz) | CC BY | Anish Dombale (*) | Initial source available on [Sketchfab](https://sketchfab.com/3d-models/chandrayaan-3-rover-17846d086cee43ca938b327663bfa82f) | <img src="./images/assets_PragyaanRover.png" height="150">|
