@@ -1,5 +1,11 @@
 # JAOPS SIM
 
+[![Ubuntu22.04](https://img.shields.io/badge/Ubuntu-22.04-orange.svg)](https://ubuntu.com/tutorials/install-ubuntu-desktop#1-overview)
+[![IsaacSim](https://img.shields.io/badge/IsaacSim-4.1.0-green.svg)](https://docs.omniverse.nvidia.com/isaacsim/latest/overview.html)
+[![Python](https://img.shields.io/badge/python-3.10-blue.svg)](https://docs.python.org/3/whatsnew/3.10.html)
+[![ros2-humble installation](https://img.shields.io/badge/ROS2-Humble-blue.svg)](https://docs.ros.org/en/humble/Installation/Alternatives/Ubuntu-Development-Setup.html)
+[![License](https://img.shields.io/badge/license-MIT-red.svg)](https://opensource.org/licenses/BSD-3-Clause)
+
 <p align="center">
   <img alt="Lunar Surface Simulator Overview" src="./images/LunarSurface_overview.png" width="47%">
 &nbsp;
@@ -16,6 +22,10 @@
 |Lunar Surface Simulator preview: six-wheel rocker-bogie rover in lunar lander garden [Youtube](https://www.youtube.com/watch?v=z7fS4HvoUb8) | <img alt="Lunar Surface Demo" src="./images/LunarSurface_demo.png" width="40%"> |
 |Particle Simulation preview: Lunar Rover Wheel/Soil Interaction [Youtube](https://www.youtube.com/watch?v=96t_Y4Iza8Q)| <img alt="Particle Simulation Demo" src="./images/ParticleSimulation_demo.png" width="40%">|
 |On-Orbit Services Simulation preview: servicer spacecraft approaching un-cooperative client [Youtube](https://www.youtube.com/watch?v=ziZgHS5BDNg) | <img alt="On-Orbit Services Demo" src="./images/OnOrbitServices_demo.png" width="40%">|
+
+## System Requirement
+* [Requirements for IsaaSim should be satisfied](https://docs.omniverse.nvidia.com/isaacsim/latest/installation/requirements.html#system-requirements)
+* 12GB+ of free RAM space
 
 ## Setup
 
