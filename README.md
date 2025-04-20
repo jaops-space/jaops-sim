@@ -22,6 +22,7 @@
 |Lunar Surface Simulator preview: six-wheel rocker-bogie rover in lunar lander garden [Youtube](https://www.youtube.com/watch?v=z7fS4HvoUb8) | <img alt="Lunar Surface Demo" src="./images/LunarSurface_demo.png" width="40%"> |
 |Particle Simulation preview: Lunar Rover Wheel/Soil Interaction [Youtube](https://www.youtube.com/watch?v=96t_Y4Iza8Q)| <img alt="Particle Simulation Demo" src="./images/ParticleSimulation_demo.png" width="40%">|
 |On-Orbit Services Simulation preview: servicer spacecraft approaching un-cooperative client [Youtube](https://www.youtube.com/watch?v=ziZgHS5BDNg) | <img alt="On-Orbit Services Demo" src="./images/OnOrbitServices_demo.png" width="40%">|
+|IM2-Yaoki Mission Simulation preview: The Yaoki rover from Dymon launched on its mission to the Moon onboard the Intuitive Machines IM-2 Athena lander. [Youtube](https://www.youtube.com/watch?v=9twxSQThw-g) | <img alt="IM2-Yaoki demo" src="./images/IM2Yaoki_demo.png" width="40%">|
 
 ## System Requirement
 * [Requirements for IsaaSim should be satisfied](https://docs.omniverse.nvidia.com/isaacsim/latest/installation/requirements.html#system-requirements)
