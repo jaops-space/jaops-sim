@@ -33,6 +33,12 @@ def generate_launch_description():
         output='screen'
     )
 
+    foxglove_studio = ExecuteProcess(
+        cmd=['foxglove-studio'],
+        output='screen',
+        condition=IfCondition(LaunchConfiguration('use_sim_time'))
+    )
+
     # Encoding converting node since foxglove depth camera features are available only for 16UC1
     depth_cam_encoding_node = Node(
         package='rover_camera',
@@ -48,6 +54,7 @@ def generate_launch_description():
         use_sim_time_arg,
 
         foxglove_node,
+        foxglove_studio,
         depth_cam_encoding_node,
 
     ])
