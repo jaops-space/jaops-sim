@@ -26,18 +26,19 @@
         }
       },
       "cameraState": {
-        "distance": 6.551425669433499,
         "perspective": true,
-        "phi": 57.520015688374734,
+        "distance": 14.141052631568604,
+        "phi": 65.02710118672216,
+        "thetaOffset": 120.25671392786211,
+        "targetOffset": [
+          0.3904777906426586,
+          -0.3355395069069844,
+          -1.765323805134075e-17
+        ],
         "target": [
           0,
           0,
           0
-        ],
-        "targetOffset": [
-          0.771662083453755,
-          0.11868466056631774,
-          1.225154682108119e-17
         ],
         "targetOrientation": [
           0,
@@ -45,7 +46,6 @@
           0,
           1
         ],
-        "thetaOffset": 120.32756891132865,
         "fovy": 32.1,
         "near": 0.5,
         "far": 5000,
@@ -225,6 +225,31 @@
           "distance": 1,
           "planarProjectionFactor": 0,
           "color": "#ffffff"
+        },
+        "/pragyaan/DepthCam/camera_info": {
+          "visible": false
+        },
+        "/pragyaan/DepthCam/depth": {
+          "visible": false,
+          "frameLocked": true,
+          "cameraInfoTopic": "/pragyaan/DepthCam/camera_info",
+          "distance": 1,
+          "planarProjectionFactor": 0,
+          "color": "#ffffff",
+          "videoKeyframeLookbackSeconds": 5
+        },
+        "/pragyaan/DepthCam/depth_pcl": {
+          "visible": true,
+          "colorField": "_auto_distance",
+          "colorMode": "gradient",
+          "colorMap": "turbo",
+          "pointSize": 1.5,
+          "gradient": [
+            "#640505ff",
+            "#242020ff"
+          ],
+          "minValue": 0,
+          "maxValue": 1000
         }
       },
       "publish": {
