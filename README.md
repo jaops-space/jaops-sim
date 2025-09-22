@@ -48,5 +48,6 @@ git lfs pull
 ```
 
 ## Usage
-1. Launch Omniverse IsaacSim and open any of the USD corresponding to the scenes shown in the table above. Explore the different assets, re-use them in your own simulations
-2. See also the demos in the `src` folder. Each one has its own corresponding README. See for instance the ROS2 foxglove and rerun interfaces for the lunar simulation scene [here](./src/ros2_ws/README.md)
+1. Launch IsaacSim 5.0 (installation and run instructions [here](https://docs.isaacsim.omniverse.nvidia.com/latest/installation/install_workstation.html#example-installation) ) 
+2. Open any of the USD corresponding to the scenes shown in the table above. Explore the different assets, re-use them in your own simulations
+3. See also the demos in the `src` folder. Each one has its own corresponding README. See for instance the ROS2 foxglove and rerun interfaces for the lunar simulation scene [here](./src/ros2_ws/README.md)
