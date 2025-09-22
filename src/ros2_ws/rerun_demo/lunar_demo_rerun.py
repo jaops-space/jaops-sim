@@ -95,7 +95,7 @@ class PragyaanSubscriber(Node):  # type: ignore[misc]
         # Subscriptions
         self.info_sub = self.create_subscription(
             CameraInfo,
-            "/depth_cam/camera_info",
+            "/pragyaan/Depthcam/camera_info",
             self.cam_info_callback,
             10,
             callback_group=self.callback_group,
@@ -103,7 +103,7 @@ class PragyaanSubscriber(Node):  # type: ignore[misc]
 
         self.img_sub = self.create_subscription(
             Image,
-            "/depth_cam/rgb",
+            "/pragyaan/DepthCam/rgb",
             self.rgb_image_callback,
             10,
             callback_group=self.callback_group,
@@ -111,7 +111,7 @@ class PragyaanSubscriber(Node):  # type: ignore[misc]
 
         self.depth_img_sub = self.create_subscription(
             Image,
-            "/depth_cam/depth",
+            "/pragyaan/DepthCam/depth",
             self.depth_image_callback,
             10,
             callback_group=self.callback_group,
@@ -119,7 +119,7 @@ class PragyaanSubscriber(Node):  # type: ignore[misc]
 
         self.points_sub = self.create_subscription(
             PointCloud2,
-            "/depth_cam/depth_pcl",
+            "/pragyaan/DepthCam/depth_pcl",
             self.points_callback,
             10,
             callback_group=self.callback_group,
@@ -143,7 +143,7 @@ class PragyaanSubscriber(Node):  # type: ignore[misc]
 
         self.imu_sub = self.create_subscription(
             Imu,
-            "imu",
+            "/pragyaan/imu",
             self.imu_callback,
             10,
             callback_group=self.callback_group,
@@ -151,7 +151,7 @@ class PragyaanSubscriber(Node):  # type: ignore[misc]
 
         self.joint_state_sub = self.create_subscription(
             JointState,
-            "joint_states",
+            "/pragyaan/joint_states",
             self.joint_states_callback,
             10,
             callback_group=self.callback_group,

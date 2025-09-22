@@ -27,13 +27,13 @@
       },
       "cameraState": {
         "perspective": true,
-        "distance": 10.942076962493422,
-        "phi": 61.24672376290796,
-        "thetaOffset": -171.8463441321495,
+        "distance": 14.141052631568604,
+        "phi": 65.02710118672216,
+        "thetaOffset": 120.25671392786211,
         "targetOffset": [
-          0.7587955371398827,
-          -0.1759280045996633,
-          8.447996419248636e-17
+          0.3904777906426586,
+          -0.3355395069069844,
+          -1.765323805134075e-17
         ],
         "target": [
           0,
@@ -61,7 +61,8 @@
         "enableStats": false,
         "meshUpAxis": "y_up",
         "syncCamera": false,
-        "labelScaleFactor": 1
+        "labelScaleFactor": 1,
+        "backgroundColor": "#1f1f1f"
       },
       "transforms": {
         "frame:sim_camera": {
@@ -80,7 +81,7 @@
           "visible": true
         },
         "frame:world": {
-          "visible": false
+          "visible": true
         },
         "frame:odom": {
           "visible": true
@@ -224,6 +225,31 @@
           "distance": 1,
           "planarProjectionFactor": 0,
           "color": "#ffffff"
+        },
+        "/pragyaan/DepthCam/camera_info": {
+          "visible": false
+        },
+        "/pragyaan/DepthCam/depth": {
+          "visible": false,
+          "frameLocked": true,
+          "cameraInfoTopic": "/pragyaan/DepthCam/camera_info",
+          "distance": 1,
+          "planarProjectionFactor": 0,
+          "color": "#ffffff",
+          "videoKeyframeLookbackSeconds": 5
+        },
+        "/pragyaan/DepthCam/depth_pcl": {
+          "visible": true,
+          "colorField": "_auto_distance",
+          "colorMode": "gradient",
+          "colorMap": "turbo",
+          "pointSize": 1.5,
+          "gradient": [
+            "#640505ff",
+            "#242020ff"
+          ],
+          "minValue": 0,
+          "maxValue": 1000
         }
       },
       "publish": {
@@ -286,10 +312,10 @@
         "poseEstimateThetaDeviation": 0.26179939
       },
       "imageMode": {
-        "imageTopic": "/depth_cam/rgb",
-        "maxValue": 0,
-        "colorMode": "colormap",
-        "colorMap": "rainbow"
+        "imageTopic": "/pragyaan/DepthCam/rgb",
+        "colorMode": "gradient",
+        "colorMap": "rainbow",
+        "calibrationTopic": "/pragyaan/DepthCam/camera_info"
       }
     },
     "Image!3xqk5p6": {
@@ -340,7 +366,7 @@
         ],
         "colorMode": "colormap",
         "colorMap": "turbo",
-        "calibrationTopic": "/depth_cam/camera_info",
+        "calibrationTopic": "/pragyaan/DepthCam/camera_info",
         "minValue": 0,
         "maxValue": 30000
       }
@@ -348,14 +374,14 @@
     "Plot!1e2pybo": {
       "paths": [
         {
-          "value": "/imu.angular_velocity.x",
+          "value": "/pragyaan/imu.angular_velocity.x",
           "enabled": true,
           "timestampMethod": "receiveTime",
           "color": "#ff0000",
           "label": "Angular Velocity X-axis"
         },
         {
-          "value": "/imu.angular_velocity.y",
+          "value": "/pragyaan/imu.angular_velocity.y",
           "enabled": true,
           "timestampMethod": "receiveTime",
           "color": "#76ff00",
@@ -363,28 +389,28 @@
         },
         {
           "timestampMethod": "receiveTime",
-          "value": "/imu.angular_velocity.z",
+          "value": "/pragyaan/imu.angular_velocity.z",
           "enabled": true,
           "color": "#0079ff",
           "label": "Angular Velocity Z-axis"
         },
         {
           "timestampMethod": "receiveTime",
-          "value": "/imu.linear_acceleration.x",
+          "value": "/pragyaan/imu.linear_acceleration.x",
           "enabled": true,
           "color": "#ffe11e",
           "label": "Linear Acceleration X-axis"
         },
         {
           "timestampMethod": "receiveTime",
-          "value": "/imu.linear_acceleration.y",
+          "value": "/pragyaan/imu.linear_acceleration.y",
           "enabled": true,
           "color": "#42f6ff",
           "label": "Linear Acceleration Y-axis"
         },
         {
           "timestampMethod": "receiveTime",
-          "value": "/imu.linear_acceleration.z",
+          "value": "/pragyaan/imu.linear_acceleration.z",
           "enabled": true,
           "color": "#f122ff",
           "label": "Linear Acceleration Z-axis"
@@ -405,7 +431,7 @@
       "paths": [
         {
           "timestampMethod": "receiveTime",
-          "value": "/joint_states.position[2]",
+          "value": "/pragyaan/joint_states.position[2]",
           "enabled": true,
           "color": "#4e98e2",
           "label": "wheel_fl",
@@ -413,35 +439,35 @@
         },
         {
           "timestampMethod": "receiveTime",
-          "value": "/joint_states.position[4]",
+          "value": "/pragyaan/joint_states.position[4]",
           "enabled": true,
           "color": "#f5774d",
           "label": "wheel_fr"
         },
         {
           "timestampMethod": "receiveTime",
-          "value": "/joint_states.position[6]",
+          "value": "/pragyaan/joint_states.position[6]",
           "enabled": true,
           "color": "#f7df71",
           "label": "wheel_bl"
         },
         {
           "timestampMethod": "receiveTime",
-          "value": "/joint_states.position[9]",
+          "value": "/pragyaan/joint_states.position[9]",
           "enabled": true,
           "color": "#5cd6a9",
           "label": "wheel_br"
         },
         {
           "timestampMethod": "receiveTime",
-          "value": "/joint_states.position[7]",
+          "value": "/pragyaan/joint_states.position[7]",
           "enabled": true,
           "color": "#61cbff",
           "label": "wheel_ml"
         },
         {
           "timestampMethod": "receiveTime",
-          "value": "/joint_states.position[8]",
+          "value": "/pragyaan/joint_states.position[8]",
           "enabled": true,
           "color": "#a395e2",
           "label": "wheel_mr"
@@ -480,6 +506,6 @@
       "direction": "row"
     },
     "direction": "column",
-    "splitPercentage": 70.93649085037676
+    "splitPercentage": 68.2700911751191
   }
 }

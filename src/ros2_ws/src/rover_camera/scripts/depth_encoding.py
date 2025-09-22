@@ -19,7 +19,7 @@ class DepthImageConverter(Node):
         # Subscriber to the depth image topic
         self.subscription = self.create_subscription(
             Image,
-            '/depth_cam/depth',  # Your topic name
+            '/pragyaan/DepthCam/depth',  # Your topic name
             self.depth_image_callback,
             10)
         
